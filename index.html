@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ryan Rehan — SEO Content Writer for SaaS & Marketing Brands</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,560;1,9..144,420&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3F4EF;
+    --paper-raised: #EAEBE3;
+    --ink: #1C2620;
+    --ink-soft: #4B564C;
+    --rule: #D3D5CA;
+    --green: #3C6349;
+    --green-deep: #24402F;
+    --rust: #B0512A;
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171B18;
+      --paper-raised: #1E2320;
+      --ink: #E9EBE4;
+      --ink-soft: #A9B2A7;
+      --rule: #333B33;
+      --green: #78A98A;
+      --green-deep: #9FC7AB;
+      --rust: #D97F58;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #171B18;
+    --paper-raised: #1E2320;
+    --ink: #E9EBE4;
+    --ink-soft: #A9B2A7;
+    --rule: #333B33;
+    --green: #78A98A;
+    --green-deep: #9FC7AB;
+    --rust: #D97F58;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 24px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+  }
+
+  /* ---- Top bar ---- */
+  header.top {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .top .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    font-family: var(--font-serif);
+    font-weight: 560;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  nav.primary { display: flex; gap: 28px; }
+  nav.primary a {
+    text-decoration: none;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  nav.primary a:hover, nav.primary a:focus-visible { color: var(--ink); }
+  nav.primary a.active { color: var(--green); }
+  .top-cta {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--green-deep);
+    padding: 9px 16px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  @media (max-width: 780px) {
+    nav.primary { display: none; }
+  }
+
+  /* ---- Layout: outline rail + content ---- */
+  .layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0,1fr);
+    gap: 64px;
+    padding-top: 56px;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 8px; }
+  }
+  aside.outline {
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 96px);
+    align-self: start;
+    font-size: 13.5px;
+  }
+  @media (max-width: 900px) { aside.outline { display: none; } }
+  aside.outline .label {
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    font-size: 12.5px;
+  }
+  aside.outline ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--rule);
+  }
+  aside.outline li { margin: 0; }
+  aside.outline a {
+    display: block;
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding: 7px 0 7px 16px;
+    margin-left: -1px;
+    border-left: 1px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  aside.outline a:hover, aside.outline a:focus-visible { color: var(--ink); }
+  aside.outline a.active { color: var(--green); border-left-color: var(--green); }
+
+  main { min-width: 0; }
+  section { padding-bottom: 92px; scroll-margin-top: 90px; }
+  section:first-of-type { padding-top: 0; }
+
+  /* ---- Hero ---- */
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 480;
+    font-size: clamp(34px, 5.4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 26px;
+    max-width: 15ch;
+  }
+  .hero h1 em { font-style: italic; color: var(--green); font-weight: 480; }
+  .hero .dek {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 0 0 34px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--green-deep);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .btn-ghost {
+    text-decoration: none;
+    color: var(--ink);
+    padding: 13px 4px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-meta {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .hero-meta strong { color: var(--ink); font-weight: 560; display: block; font-size: 15px; margin-bottom: 3px; font-family: var(--font-serif); }
+
+  /* ---- Section heading pattern ---- */
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 30px; }
+  .sec-num { font-family: var(--font-serif); font-style: italic; color: var(--green); font-size: 16px; min-width: 24px; }
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 480;
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .sec-intro { color: var(--ink-soft); max-width: 62ch; margin: -14px 0 32px; font-size: 15.5px; }
+
+  /* ---- Overview ---- */
+  .lede {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 42ch;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ---- Services as structured outline (H2/H3 motif) ---- */
+  .service-block { border-top: 1px solid var(--rule); padding: 28px 0; }
+  .service-block:last-child { border-bottom: 1px solid var(--rule); }
+  .service-block .sh {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 700px) { .service-block .sh { grid-template-columns: 1fr; gap: 10px; } }
+  .service-block h3 {
+    font-family: var(--font-serif);
+    font-weight: 480;
+    font-size: 19px;
+    margin: 0;
+  }
+  .service-block ul { margin: 6px 0 0; padding: 0 0 0 18px; color: var(--ink-soft); font-size: 15px; }
+  .service-block li { margin-bottom: 6px; }
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+
+  /* ---- Who I work with / industries ---- */
+  .split-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 700px) { .split-two { grid-template-columns: 1fr; gap: 36px; } }
+  .split-two h4 {
+    font-family: var(--font-serif);
+    font-weight: 480;
+    font-size: 16px;
+    margin: 0 0 14px;
+    color: var(--ink-soft);
+  }
+  .chiplist { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .chiplist li {
+    font-size: 14px;
+    padding: 7px 13px;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    color: var(--ink);
+  }
+
+  /* ---- Process: real sequence, numbers earned ---- */
+  .process { position: relative; }
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .process .step:last-child { border-bottom: 1px solid var(--rule); }
+  .step .n {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    color: var(--green);
+  }
+  .step h3 { font-family: var(--font-serif); font-weight: 480; font-size: 17px; margin: 0 0 4px; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: 15px; max-width: 56ch; }
+
+  /* ---- Work samples ---- */
+  .work-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 30px;
+    background: var(--paper-raised);
+  }
+  .work-card p { color: var(--ink-soft); margin: 0 0 18px; max-width: 52ch; }
+  .work-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 22px; }
+  .work-tags span { font-size: 13px; color: var(--ink-soft); }
+  .work-tags span:not(:last-child)::after { content: '·'; margin-left: 10px; color: var(--rule); }
+  .link-arrow { font-weight: 500; color: var(--green-deep); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-size: 15px; }
+
+  /* ---- What sets apart ---- */
+  .apart-list { columns: 2; column-gap: 40px; margin: 0; padding: 0; list-style: none; }
+  @media (max-width: 640px) { .apart-list { columns: 1; } }
+  .apart-list li {
+    break-inside: avoid;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 15.5px;
+  }
+
+  /* ---- Engagement ---- */
+  .eng-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+  @media (max-width: 640px) { .eng-list { grid-template-columns: 1fr; } }
+  .eng-item { background: var(--paper); padding: 22px 24px; font-size: 15px; }
+
+  /* ---- Contact ---- */
+  .contact-block {
+    background: var(--green-deep);
+    color: var(--paper);
+    border-radius: 6px;
+    padding: 52px 44px;
+  }
+  @media (max-width: 640px) { .contact-block { padding: 38px 26px; } }
+  .contact-block h2 { color: var(--paper); }
+  .contact-block .sec-intro, .contact-block .sec-num { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+  .contact-grid { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
+  .contact-item a, .contact-item span { color: var(--paper); text-decoration: none; font-size: 16px; }
+  .contact-item .k { display: block; font-size: 12.5px; color: color-mix(in srgb, var(--paper) 65%, transparent); margin-bottom: 6px; }
+  .contact-item a { border-bottom: 1px solid color-mix(in srgb, var(--paper) 35%, transparent); padding-bottom: 2px; }
+
+  footer.site {
+    padding: 36px 0 calc(36px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#overview">Ryan Rehan</a>
+    <nav class="primary" id="primaryNav">
+      <a href="#overview">Overview</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="top-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <aside class="outline">
+    <div class="label">On this page</div>
+    <ol id="outlineNav">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#services">What I do</a></li>
+      <li><a href="#audience">Who I work with</a></li>
+      <li><a href="#process">Writing approach</a></li>
+      <li><a href="#work">Work samples</a></li>
+      <li><a href="#apart">What sets it apart</a></li>
+      <li><a href="#engagement">Engagement options</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </aside>
+
+  <main>
+    <section class="hero" id="overview">
+      <h1>SEO content that&rsquo;s built to <em>rank</em>, not just read well.</h1>
+      <p class="dek">I write keyword-driven blog content for SaaS companies and marketing-led businesses — structured around search intent, so it attracts the right audience and supports long-term organic growth.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">Start a project</a>
+        <a class="btn-ghost" href="https://socialastro.com/profile/ryan-rehan">View published work</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Based in</strong>Kota, Rajasthan</div>
+        <div><strong>Works with</strong>SaaS, digital marketing agencies, business &amp; tech platforms</div>
+        <div><strong>Engagement</strong>Monthly retainers &amp; ongoing agency support</div>
+      </div>
+    </section>
+
+    <section id="lede-sec">
+      <p class="lede">My work is designed not just to inform, but to attract the right audience and turn readers into engaged users &mdash; content that aligns with search intent and simplifies complex topics.</p>
+    </section>
+
+    <section id="services">
+      <div class="sec-head"><span class="sec-num">§</span><h2>What I do</h2></div>
+      <p class="sec-intro">Three ways the work comes together, from first keyword to finished article.</p>
+
+      <div class="service-block">
+        <div class="sh">
+          <div>
+            <span class="tag">Primary service</span>
+            <h3>SEO blog content</h3>
+          </div>
+          <ul>
+            <li>Keyword-driven blog articles built around search intent</li>
+            <li>SEO structuring &mdash; headings, internal flow, readability</li>
+            <li>Content designed for rankings, not just writing quality</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="sh">
+          <div><h3>Content strategy support</h3></div>
+          <ul>
+            <li>Blog topic ideation based on keyword opportunities</li>
+            <li>Identifying gaps in existing content</li>
+            <li>Aligning blog content with business goals</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="sh">
+          <div><h3>Long-form blog writing</h3></div>
+          <ul>
+            <li>In-depth, research-backed articles</li>
+            <li>Clear, structured, and engaging format</li>
+            <li>Suitable for SaaS, marketing, and business audiences</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="audience">
+      <div class="sec-head"><span class="sec-num">§</span><h2>Who I work with</h2></div>
+      <div class="split-two">
+        <div>
+          <h4>Client types</h4>
+          <ul class="chiplist">
+            <li>SaaS companies</li>
+            <li>Digital marketing agencies</li>
+            <li>Business &amp; tech-focused platforms</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Industries</h4>
+          <ul class="chiplist">
+            <li>SaaS &amp; technology</li>
+            <li>Digital marketing</li>
+            <li>Business &amp; entrepreneurship</li>
+          </ul>
+          <p style="color:var(--ink-soft); font-size:14px; margin-top:14px;">Adapts quickly to new industries with research-driven writing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="sec-head"><span class="sec-num">§</span><h2>Writing approach</h2></div>
+      <p class="sec-intro">A structured process for consistent quality and performance, every time.</p>
+      <div class="process">
+        <div class="step">
+          <div class="n">1</div>
+          <div><h3>Search intent &amp; topic research</h3><p>Understanding what the reader actually wants before a word is written.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <div><h3>Keyword-focused outline creation</h3><p>Mapping the article's structure around the terms it needs to rank for.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div><h3>SEO-optimized structure</h3><p>H1, H2, and flow set up for both readers and search engines.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <div><h3>Clear, engaging writing</h3><p>Simplifying complex topics without losing accuracy or depth.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">5</div>
+          <div><h3>Editing for readability &amp; performance</h3><p>A final pass focused on how the piece reads and how it will perform.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-head"><span class="sec-num">§</span><h2>Work samples</h2></div>
+      <div class="work-card">
+        <p>Published articles covering marketing strategy, business insights, technology, and informational &amp; educational blog content.</p>
+        <div class="work-tags">
+          <span>Marketing strategies</span>
+          <span>Business insights</span>
+          <span>Technology topics</span>
+          <span>Informational content</span>
+        </div>
+        <a class="link-arrow" href="https://socialastro.com/profile/ryan-rehan">View the published portfolio</a>
+      </div>
+    </section>
+
+    <section id="apart">
+      <div class="sec-head"><span class="sec-num">§</span><h2>What sets it apart</h2></div>
+      <ul class="apart-list">
+        <li>Focus on ranking potential, not just writing</li>
+        <li>Ability to simplify complex topics</li>
+        <li>Structured, SEO-friendly formatting</li>
+        <li>Consistent, reliable delivery</li>
+        <li>Strong understanding of content marketing goals</li>
+      </ul>
+    </section>
+
+    <section id="engagement">
+      <div class="sec-head"><span class="sec-num">§</span><h2>Engagement options</h2></div>
+      <div class="eng-list">
+        <div class="eng-item">Monthly blog retainers</div>
+        <div class="eng-item">Ongoing content support for agencies</div>
+        <div class="eng-item">SEO blog writing projects</div>
+        <div class="eng-item">Long-form content creation</div>
+      </div>
+    </section>
+
+    <section id="contact" style="padding-bottom: 80px;">
+      <div class="contact-block">
+        <div class="sec-head"><span class="sec-num">§</span><h2>Contact</h2></div>
+        <p class="sec-intro">Ryan Rehan &mdash; SEO Content Writer</p>
+        <div class="contact-grid">
+          <div class="contact-item"><span class="k">Phone</span><a href="tel:+918094900456">+91 8094900456</a></div>
+          <div class="contact-item"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/ryan-rehan-92626324a">linkedin.com/in/ryan-rehan-92626324a</a></div>
+          <div class="contact-item"><span class="k">Portfolio</span><a href="https://socialastro.com/profile/ryan-rehan">socialastro.com/profile/ryan-rehan</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site">
+      <span>Ryan Rehan &mdash; SEO Content Writer</span>
+      <span>Kota, Rajasthan</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Scroll-spy for outline rail + top nav
+  (function() {
+    var sections = ['overview','services','audience','process','work','apart','engagement','contact'];
+    var outlineLinks = document.querySelectorAll('#outlineNav a');
+    var primaryLinks = document.querySelectorAll('#primaryNav a');
+    var map = { overview:0, services:1, audience:2, process:3, work:4, apart:5, engagement:6, contact:7 };
+
+    function setActive(id) {
+      outlineLinks.forEach(function(a){ a.classList.remove('active'); });
+      primaryLinks.forEach(function(a){ a.classList.remove('active'); });
+      var idx = map[id];
+      if (idx !== undefined && outlineLinks[idx]) outlineLinks[idx].classList.add('active');
+      var pl = document.querySelector('#primaryNav a[href="#' + id + '"]');
+      if (pl) pl.classList.add('active');
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
